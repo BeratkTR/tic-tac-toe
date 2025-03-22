@@ -13,6 +13,8 @@ const cookies = new Cookies();
 const api_key = "5hg4s6q98wqc";
 const client = StreamChat.getInstance(api_key)
 
+const serverIP = "localhost";
+
 function App() {
   const [isAuth, setIsAuth] = useState(false);
 
@@ -56,8 +58,8 @@ function App() {
           :
           (
             <>
-              <SignUp setIsAuth={setIsAuth}/>
-              <Login setIsAuth={setIsAuth}/>
+              <SignUp setIsAuth={setIsAuth} serverIP={serverIP}/>
+              <Login setIsAuth={setIsAuth} serverIP={serverIP}/>
             </>
           )
         }

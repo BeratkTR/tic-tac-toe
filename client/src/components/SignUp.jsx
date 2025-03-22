@@ -4,12 +4,12 @@ import Cookies from "universal-cookie"
 
 const cookies = new Cookies();
 
-const SignUp = ({setIsAuth}) => {
+const SignUp = ({setIsAuth, serverIP}) => {
     const [user, setUser] = useState({})
 
     const handleSignUp  = async(e) => {
         try{
-            const response = await axios.post("http://localhost:3000/signup", user)
+            const response = await axios.post(`http://${serverIP}:3000/signup`, user)
             const {token, userId, firstName, lastName, username, hashedPassword} = response.data;
 
             cookies.set("token", token);
