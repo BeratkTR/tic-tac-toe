@@ -8,10 +8,9 @@ import JoinGame from './components/JoinGame'
 import "./app.css"
 // import "stream-chat-react/dist/css/v2/index.css";
 
-
 const cookies = new Cookies();
-const api_key = "5hg4s6q98wqc";
-const client = StreamChat.getInstance(api_key)
+const api_key = import.meta.env.VITE_API_KEY;
+const client = StreamChat.getInstance(api_key);
 
 const serverIP = "localhost";
 
@@ -23,7 +22,6 @@ function App() {
     const getUser = async() => {
       const username = await cookies.get("username")
       setUsername(username)
-      console.log(username)
     }
     getUser();
   }, [])
