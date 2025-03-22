@@ -21,3 +21,4 @@ cd server
 npm i
 npm start
 ```
+![tic-tac-toe video](https://github.com/user-attachments/assets/846b931b-71ee-4276-9f1a-01c519489b4f)
