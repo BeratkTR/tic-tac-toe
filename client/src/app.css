@@ -1,11 +1,36 @@
 .App {
     width: 100vw;
     height: 100vh;
+    background-color: #76a2ff;
+  }
+  .authentication{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #76a2ff;
+    padding: 100px;
   }
+nav{
+  width: calc(100% - 40px);
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+
+  display: flex;  
+  align-items: center; 
+}
+.logout-btn{
+  width: 100px ;
+  padding: 10px;
+  border: none;
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  margin-left: auto;
+}
+.logout-btn:hover{
+  background-color: rgb(184, 0, 0);
+  cursor: pointer;
+}
   
   body {
     padding: 0;
@@ -84,7 +109,13 @@
     color: white;
     font-size: 30px;
   }
-  
+
+  .joinGame{
+    padding: 80px;
+
+    display: flex;
+    justify-content: center;
+  }
   .joinGame input {
     padding: 10px;
     border: 1px solid #ccc;

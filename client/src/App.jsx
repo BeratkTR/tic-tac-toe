@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
 import {StreamChat} from "stream-chat"
@@ -17,6 +17,17 @@ const serverIP = "localhost";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const getUser = async() => {
+      const username = await cookies.get("username")
+      setUsername(username)
+      console.log(username)
+    }
+    getUser();
+  }, [])
+  
 
   const logOut = () => {
     cookies.remove("token");
@@ -26,7 +37,7 @@ function App() {
     cookies.remove("username");
     cookies.remove("hashedPassword"); 
     client.disconnectUser();
-    setIsAuth(false);
+    setIsAuth(false); 
   }
 
   const token = cookies.get("token"); 
@@ -50,17 +61,23 @@ function App() {
         {
           isAuth ? 
           (
-            <Chat client={client}> 
-              <JoinGame/>
-              <button onClick={logOut}>Logout</button>
-            </Chat>
+            <div>
+              <nav>
+                <div className="username">Username: <span style={{textDecoration: "underline", fontWeight: "bolder"}}>{username}</span></div>
+                <button onClick={logOut} className='logout-btn'>Logout</button>
+              </nav>
+
+              <Chat client={client}> 
+                <JoinGame/>
+              </Chat>
+            </div>
           )
           :
           (
-            <>
+            <div className='authentication'>
               <SignUp setIsAuth={setIsAuth} serverIP={serverIP}/>
               <Login setIsAuth={setIsAuth} serverIP={serverIP}/>
-            </>
+            </div>
           )
         }
       </div>

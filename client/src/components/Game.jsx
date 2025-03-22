@@ -21,22 +21,30 @@ function Game({channel, setChannel}){
         {
             playersJoined ?
             (
-                <div className="gameContainer">
-                    <Board  result={result} setResult={setResult} />
+                <>
+                    <div className="gameContainer">
+                        <Board  result={result} setResult={setResult} />
 
-                    <Window>
-                        <MessageList hideDeletedMessages disableDateSeparator messageActions={["react"]} />     
-                        <MessageInput noFiles />
-                    </Window>
+                        <Window>
+                            <MessageList hideDeletedMessages disableDateSeparator messageActions={["react"]} />     
+                            <MessageInput noFiles />
+                        </Window>
+                    </div>
 
-                    <button onClick={async() => {
+                    <div className="btn-container">
+                        <button className='leave-btn' onClick={async() => {
                         await channel.stopWatching();
                         setChannel(null);
                     }}>Leave Game</button>
-                </div>
+                    </div>
+                </>
             )
             :
-            (<h1>Waiting for other player...</h1>)
+            (
+                <div className='waiting-msg'>
+                    <h1>Waiting for other player...</h1>
+                </div>
+            )
         }
     </>
   )

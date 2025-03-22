@@ -30,9 +30,11 @@ const JoinGame = () => {
                 :
                 (
                     <div className="joinGame">
-                        <h3>Create Game</h3>
-                        <input type="text" placeholder="Username of rival..." onChange={(e) => {setRivalUsername(e.target.value)}} value={rivalUsername}/>
-                        <button onClick={createChannel}>Join/Start Game</button>
+                        <div className="formContainer">
+                            <h3>Create Game</h3>
+                            <input type="text" placeholder="Username of rival..." onChange={(e) => {setRivalUsername(e.target.value)}} value={rivalUsername}/>
+                            <button onClick={createChannel}>Join/Start Game</button>
+                        </div>
                     </div>
                 )
             }

@@ -1,13 +1,38 @@
 .gameContainer {
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     column-count: 2;
     column-gap: 100px;
+
+    padding-top: 120px;
+  }
+  .leave-btn{
+    width: 140px ;
+    padding: 13px;
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+  }
+  .leave-btn:hover{
+    background-color: rgb(184, 0, 0);
+    cursor: pointer;
+  }
+  .btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .waiting-msg{
+    display: flex;
+    justify-content: center;
+    padding: 80px;
   }
   
+
+
+
   .str-chat__list {
     background-color: white;
     border-top-left-radius: 6px;
