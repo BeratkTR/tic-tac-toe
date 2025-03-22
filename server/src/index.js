@@ -3,14 +3,15 @@ const cors = require("cors");
 const {v4: uuidv4} = require("uuid");
 const bcrypt = require("bcrypt");
 const {StreamChat} = require("stream-chat")
+require("dotenv").config();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-const api_key = "5hg4s6q98wqc";
-const api_secret = "wejggtrzmqndumexwq5pmpcy6byu3qznup54c8fnud9uma96t57mjcwrqfznj6hv"
+const api_key = process.env.API_KEY;
+const api_secret = process.env.API_SECRET;
 const serverClient = StreamChat.getInstance(api_key, api_secret);
 
 
